@@ -1,0 +1,14 @@
+{
+  "name": "latest-tweets",
+  "description": "get the latest tweets from a Twitter user timeline",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/noffle/latest-tweets.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.65.0",
+    "xmldom": "^0.1.19",
+    "xpath": "0.0.9"
+  }
+}
