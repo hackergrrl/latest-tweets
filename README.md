@@ -3,6 +3,12 @@
 > get a JSON array of a Twitter user's latest tweets -- no Twitter API required!
 
 
+## background
+
+Based on the [Perl implementation](http://perlmonks.org/?node_id=1039382) by
+[ciderpunx](http://perlmonks.org/?node_id=373188).
+
+
 ## installation
 
 ```sh
