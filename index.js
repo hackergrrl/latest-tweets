@@ -23,7 +23,7 @@ module.exports = function (username, cb) {
           return
         }
         var header = xpath.select('./div[contains(@class, \'stream-item-header\')]', tweet)[0]
-        var body = xpath.select('./p[contains(@class, \'tweet-text\')]/text()', tweet)[0]
+        var body = xpath.select('*/p[contains(@class, \'tweet-text\')]/text()', tweet)[0]
         if (body) body = body.data
         var item = {
           username: '@' + xpath.select('./a/span[contains(@class, \'username\')]/b/text()', header)[0].data,
