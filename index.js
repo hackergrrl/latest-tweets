@@ -6,6 +6,11 @@ module.exports = function (username, cb) {
 
   var url = 'https://twitter.com/' + username
 
+  // oh yeah //extreme fragility//
+  if (window) {
+    url = 'https://crossorigin.me/' + url
+  }
+
   request(url, function (err, res, body) {
     if (err) {
       cb(err)
