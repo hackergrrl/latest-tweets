@@ -10,5 +10,13 @@
     "request": "^2.65.0",
     "xmldom": "^0.1.19",
     "xpath": "0.0.9"
-  }
+  },
+  "keywords": [
+    "twitter",
+    "tweets",
+    "browser",
+    "node",
+    "no api",
+    "api"
+  ]
 }

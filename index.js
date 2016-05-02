@@ -7,7 +7,7 @@ module.exports = function (username, cb) {
   var url = 'https://twitter.com/' + username
 
   // oh yeah //extreme fragility//
-  if (window) {
+  if (typeof window) {
     url = 'https://crossorigin.me/' + url
   }
 
