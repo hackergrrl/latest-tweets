@@ -7,8 +7,8 @@ module.exports = function (username, cb) {
   var url = 'https://twitter.com/' + username
 
   // oh yeah //extreme fragility//
-  if (typeof window) {
-    url = 'https://crossorigin.me/' + url
+  if (process.browser) {
+    url = 'http://cors.io/?u=' + url
   }
 
   request(url, function (err, res, body) {
