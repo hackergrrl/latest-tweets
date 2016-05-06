@@ -2,7 +2,6 @@
 
 > get a JSON array of a Twitter user's latest tweets -- no Twitter API required!
 
-
 ## background
 
 Based on the [Perl implementation](http://perlmonks.org/?node_id=1039382) by
@@ -11,13 +10,6 @@ Based on the [Perl implementation](http://perlmonks.org/?node_id=1039382) by
 This was written to be used in Node, but it embeds a CORS proxy url so you can
 use it without any configuration in the browser using e.g.
 [browserify](https://github.com/substack/node-browserify).
-
-
-## installation
-
-```sh
-$ npm i latest-tweets
-```
 
 ## usage
 
@@ -55,6 +47,17 @@ Specify a `username` of the timeline you want. The callback `cb` will contain an
 optional error as its first parameter, and an array with the user's latest
 tweets as its second parameter.
 
+## installation
+
+```sh
+$ npm i latest-tweets
+```
+
+## help!
+
+Scraping HTML is terrible ever-shifting ground. If you notice that
+`latest-tweets` isn't working, file an issue! Or, better yet, take a look at the
+HTML twitter is returning and see if it's a quick PR to fix it!
 
 ## license
 
