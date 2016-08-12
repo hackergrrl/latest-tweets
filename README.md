@@ -26,10 +26,10 @@ This will output all sorts of fun JSON:
 ```js
 [ { url: 'https://twitter.com/noffle/status/700514938750521344',
     content: 'We worry about what others think of us when we don\'t know what we think of ourselves.',
-    date: Fri Feb 19 2016 02:59:10 GMT+0100 (CET) },
+    date: 'Fri Feb 19 2016 02:59:10 GMT+0100 (CET)' },
   { url: 'https://twitter.com/noffle/status/727096493543317504',
     content: 'API tokens are awful and don\'t let anybody tell you otherwise.',
-    date: Mon May 02 2016 11:24:47 GMT+0200 (CEST) },
+    date: 'Mon May 02 2016 11:24:47 GMT+0200 (CEST)' },
   ...
 ```
 
