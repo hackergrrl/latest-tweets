@@ -53,11 +53,12 @@ tweets as its second parameter.
 $ npm i latest-tweets
 ```
 
-## help!
+## ever-shifting ground
 
-Scraping HTML is terrible ever-shifting ground. If you notice that
-`latest-tweets` isn't working, file an issue! Or, better yet, take a look at the
-HTML twitter is returning and see if it's a quick PR to fix it!
+Scraping HTML is a foundation upon ever-shifting ground. As Twitter changes
+[what is essentially an unofficial API], things will break. If you notice that
+`latest-tweets` isn't working, please file an issue. Better yet, file a fixing
+pull request.
 
 ## license
 
