@@ -23,7 +23,7 @@ latestTweets('noffle', function (err, tweets) {
 
 This will output all sorts of fun JSON:
 
-```json
+```js
 [ { url: 'https://twitter.com/noffle/status/700514938750521344',
     content: 'We worry about what others think of us when we don\'t know what we think of ourselves.',
     date: Fri Feb 19 2016 02:59:10 GMT+0100 (CET) },
