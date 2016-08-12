@@ -45,6 +45,9 @@ module.exports = function (username, cb) {
         item.timestamp = date.toISOString()
 
         res.push({
+          username: item.username,
+          fullname: item.fullname,
+          retweet: item.username !== '@'+username,
           url: item.url,
           content: item.body,
           date: date
