@@ -9,7 +9,7 @@ module.exports = function (username, cb) {
 
   // oh yeah //extreme fragility//
   if (process.browser) {
-    url = 'https://cors.io/?u=' + url
+    url = 'http://cors.io/?' + url
   }
 
   request(url, function (err, res, body) {
