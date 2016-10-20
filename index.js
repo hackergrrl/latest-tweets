@@ -47,7 +47,7 @@ module.exports = function (username, cb) {
         res.push({
           username: item.username,
           fullname: item.fullname,
-          retweet: item.username !== '@'+username,
+          retweet: item.username.toLowerCase() !== '@'+username.toLowerCase(),
           url: item.url,
           content: item.body,
           date: date
