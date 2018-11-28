@@ -31,7 +31,7 @@ module.exports = function (username, cb) {
         
         var header = xpath.select('./div[contains(@class, \'stream-item-header\')]', tweet)[0]
         var body = xpath.select('*/p[contains(@class, \'tweet-text\')]/text()', tweet)[0]
-        var fullname = xpath.select('./a/strong[contains(@class, "fullname")]/text()', tweet)[0]
+        var fullname = xpath.select('.//strong[contains(@class, "fullname")]/text()', header)[0]
         if (body) body = nodeToText(body)
         var imageContainer = xpath.select('.//div[contains(@class, \'js-adaptive-photo\')]/@data-image-url', tweet)[0]
         var img = imageContainer?imageContainer.value:null;
