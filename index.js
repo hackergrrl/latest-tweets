@@ -22,9 +22,6 @@ module.exports = function (username, cb) {
 
       var tweets = xpath.select('//li[contains(@class, \'js-stream-item\')]', doc)
 
-      // image XPATH
-      // //*[@id="stream-item-tweet-1067547918142341121"]/div[1]/div[2]/div[3]/div/div/div/div
-
       tweets.forEach(function (n) {
         var tweet = xpath.select('./div[contains(@class, \'tweet\')]/div[contains(@class, \'content\')]', n)[0]
         if (!tweet) {
