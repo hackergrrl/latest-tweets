@@ -1,7 +1,7 @@
 {
   "name": "latest-tweets",
   "description": "get the latest tweets from a Twitter user timeline",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "repository": {
     "url": "git://github.com/noffle/latest-tweets.git"
   },
