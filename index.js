@@ -28,16 +28,21 @@ module.exports = function (username, cb) {
           // bad tweet?
           return
         }
+        
         var header = xpath.select('./div[contains(@class, \'stream-item-header\')]', tweet)[0]
         var body = xpath.select('*/p[contains(@class, \'tweet-text\')]/text()', tweet)[0]
-        var fullname = xpath.select('./a/strong[contains(@class, "fullname")]/text()', header)[0]
+        var fullname = xpath.select('.//strong[contains(@class, "fullname")]/text()', header)[0]
         if (body) body = nodeToText(body)
+        var imageContainer = xpath.select('.//div[contains(@class, \'js-adaptive-photo\')]/@data-image-url', tweet)[0]
+        var img = imageContainer?imageContainer.value:null;
+
         var item = {
           username: '@' + xpath.select('./a/span[contains(@class, \'username\')]/b/text()', header)[0].data,
           body: body,
           fullname: fullname ? fullname.data : '',
           avatar: xpath.select('./a/img[contains(@class, "avatar")]/@src', header)[0].value,
           url: 'https://twitter.com' + xpath.select('./small[contains(@class, "time")]/a[contains(@class, "tweet-timestamp")]/@href', header)[0].value,
+          image: img,
           timestamp: xpath.select('./small[contains(@class, "time")]/a[contains(@class, "tweet-timestamp")]/span/@data-time', header)[0].value
         }
 
@@ -50,6 +55,7 @@ module.exports = function (username, cb) {
           fullname: item.fullname,
           retweet: item.username.toLowerCase() !== '@'+username.toLowerCase(),
           url: item.url,
+          image: item.image,
           content: item.body,
           date: date
         })
