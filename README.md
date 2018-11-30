@@ -29,13 +29,19 @@ This will output an array of objects:
     date: 'Fri Feb 19 2016 02:59:10 GMT+0100 (CET)' },
     username: '@noffle',
     fullname: 'Stephen Whitmore',
-    image: 'https://imageurl.com/image_id_1'
+    image: 'https://imageurl.com/image_id_1',
+    mentions: [ '@twitteruser1', '@twitteruser2' ],
+    hashtags: [ '#hastag1', '#hashtag2' ],
+    links: [ 'http://a-link.com' ]
   { url: 'https://twitter.com/noffle/status/727096493543317504',
     content: 'API tokens are awful and don\'t let anybody tell you otherwise.',
     date: 'Mon May 02 2016 11:24:47 GMT+0200 (CEST)' },
     username: '@noffle',
     fullname: 'Stephen Whitmore',
-    image: 'https://imageurl.com/image_id_1'
+    image: 'https://imageurl.com/image_id_2',
+    mentions: [],
+    hashtags: [],
+    links: []
   ...
 ```
 
