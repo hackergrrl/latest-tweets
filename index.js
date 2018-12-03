@@ -3,6 +3,9 @@ var xpath = require('xpath')
 var dom = require('xmldom').DOMParser
 var unescape = require('unescape')
 
+const getImage = require('./modules/extractImage');
+const getLinks = require('./modules/extractLinkFromText');
+
 module.exports = function (username, cb) {
 
   var url = 'https://twitter.com/' + username
@@ -33,12 +36,11 @@ module.exports = function (username, cb) {
         var body = xpath.select('*/p[contains(@class, \'tweet-text\')]/text()', tweet)[0]
         var fullname = xpath.select('.//strong[contains(@class, "fullname")]/text()', header)[0]
         if (body) body = nodeToText(body)
-        var imageContainer = xpath.select('.//div[contains(@class, \'js-adaptive-photo\')]/@data-image-url', tweet)[0]
-        var img = imageContainer?imageContainer.value:null;
+        var img = getImage(tweet)
 
         let mentions = (body.match(/\s([@][\w_-]+)/gi)||[]).map( str => str.trim() )
         let hashtags = (body.match(/\s([#][\w_-]+)/gi)||[]).map( str => str.trim() )
-        let links = (body.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/g)||[]).map( str => str.trim() )
+        let links = getLinks( body );
 
         var item = {
           username: '@' + xpath.select('./a/span[contains(@class, \'username\')]/b/text()', header)[0].data,
