@@ -5,6 +5,9 @@
   "repository": {
     "url": "git://github.com/noffle/latest-tweets.git"
   },
+  "scripts": {
+    "test": "mocha ./tests/**/*.spec.js"
+  },
   "main": "index.js",
   "dependencies": {
     "request": "^2.65.0",
@@ -19,5 +22,9 @@
     "node",
     "no api",
     "api"
-  ]
+  ],
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
 }
