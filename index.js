@@ -39,10 +39,10 @@ module.exports = function (username, skipPinnedTweets, cb) {
         if (body) body = nodeToText(body)
         var imageContainer = xpath.select('.//div[contains(@class, \'js-adaptive-photo\')]/@data-image-url', tweet)[0]
         var img = imageContainer?imageContainer.value:null;
-        if(body !== undefined) {
-          let mentions = (body.match(/\s([@][\w_-]+)/gi) || []).map(str => str.trim())
-          let hashtags = (body.match(/\s([#][\w_-]+)/gi) || []).map(str => str.trim())
-          let links = (body.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/g) || []).map(str => str.trim())
+        if(body) {
+           mentions = (body.match(/\s([@][\w_-]+)/gi) || []).map(str => str.trim())
+           hashtags = (body.match(/\s([#][\w_-]+)/gi) || []).map(str => str.trim())
+           links = (body.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/g) || []).map(str => str.trim())
         }
         var item = {
           username: '@' + xpath.select('./a/span[contains(@class, \'username\')]/b/text()', header)[0].data,
