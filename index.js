@@ -3,7 +3,7 @@ var xpath = require('xpath')
 var dom = require('xmldom').DOMParser
 var unescape = require('unescape')
 
-module.exports = function (username, cb) {
+module.exports = function (username, skipPinnedTweets = false, cb) {
 
   var url = 'https://twitter.com/' + username
 
@@ -20,7 +20,11 @@ module.exports = function (username, cb) {
 
       var doc = new dom({errorHandler: function() {}}).parseFromString(body)
 
-      var tweets = xpath.select('//li[contains(@class, \'js-stream-item\')]', doc)
+      if(skipPinnedTweets){
+          var tweets = xpath.select('//li[contains(@class, \'js-stream-item\') and not(contains(@class,\'js-pinned\'))]', doc)
+      } else {
+          var tweets = xpath.select('//li[contains(@class, \'js-stream-item\')]', doc)
+      }
 
       tweets.forEach(function (n) {
         var tweet = xpath.select('./div[contains(@class, \'tweet\')]/div[contains(@class, \'content\')]', n)[0]
@@ -28,7 +32,7 @@ module.exports = function (username, cb) {
           // bad tweet?
           return
         }
-        
+
         var header = xpath.select('./div[contains(@class, \'stream-item-header\')]', tweet)[0]
         var body = xpath.select('*/p[contains(@class, \'tweet-text\')]/text()', tweet)[0]
         var fullname = xpath.select('.//strong[contains(@class, "fullname")]/text()', header)[0]
