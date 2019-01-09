@@ -3,7 +3,7 @@ var xpath = require('xpath')
 var dom = require('xmldom').DOMParser
 var unescape = require('unescape')
 
-module.exports = function (username, skipPinnedTweets = false, cb) {
+module.exports = function (username, skipPinnedTweets, cb) {
 
   var url = 'https://twitter.com/' + username
 
