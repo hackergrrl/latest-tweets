@@ -16,7 +16,7 @@ use it without any configuration in the browser using e.g.
 ```js
 var latestTweets = require('latest-tweets')
 
-latestTweets('noffle', function (err, tweets) {
+latestTweets('noffle', true, function (err, tweets) {
   console.log(tweets)
 })
 ```
@@ -51,9 +51,9 @@ This will output an array of objects:
 var latestTweets = require('latest-tweets')
 ```
 
-### latestTweets(username, cb(err, tweets))
+### latestTweets(username, skipPinnedTweets, cb(err, tweets))
 
-Specify a `username` of the timeline you want. The callback `cb` will contain an
+Specify a `username` of the timeline you want and whether or not you want to skip pinned tweets. The callback `cb` will contain an
 optional error as its first parameter, and an array with the user's latest
 tweets as its second parameter.
 
