@@ -2,6 +2,10 @@
 
 > get a JSON array of a Twitter user's latest tweets -- no Twitter API required!
 
+## unmaintained
+
+I'm no longer actively maintaining this module. The approach this module uses (parsing the raw HTML) is prone to break often, as Twitter changes their website layout somewhat frequently. I'm happy to merge PRs or give away the module to someone interested in maintaining it, but won't be providing ongoing support.
+
 ## background
 
 Based on the [Perl implementation](http://perlmonks.org/?node_id=1039382) by
